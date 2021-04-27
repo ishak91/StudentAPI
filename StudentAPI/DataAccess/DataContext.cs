@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using StudentAPI.Model;
 using StudentAPI.Services;
 
 namespace StudentAPI.DataAccess
