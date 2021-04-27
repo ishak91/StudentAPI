@@ -14,14 +14,20 @@ namespace StudentAPI.Services
     }
     public class StudentService : IStudentService
     {
+        private readonly DataContext _context;
+
+        public StudentService()
+        {
+            _context = new DataContext();
+        }
         public List<Student> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.Student.ToList();
         }
 
         public Student GetById(int studentId)
         {
-            throw new NotImplementedException();
+            return _context.Student.Single(s => s.Id == studentId);
         }
     }
 

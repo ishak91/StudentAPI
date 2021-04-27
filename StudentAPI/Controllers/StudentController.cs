@@ -12,5 +12,25 @@ namespace StudentAPI.Controllers
     [ApiController]
     public class StudentController : ControllerBase
     {
+        private readonly IStudentService _studentService;
+
+        public StudentController(IStudentService studentService)
+        {
+            _studentService = studentService;
+        }
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Ok(_studentService.GetAll());
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
+        {
+            var student = _studentService.GetById(id);
+
+            return Ok(student);
+        }
     }
 }
