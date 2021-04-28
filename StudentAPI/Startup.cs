@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using StudentAPI.DataAccess;
+using StudentAPI.Services;
 
 namespace StudentAPI
 {
@@ -28,6 +29,7 @@ namespace StudentAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<DataContext>();
+            services.AddTransient<IStudentService, StudentService>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
