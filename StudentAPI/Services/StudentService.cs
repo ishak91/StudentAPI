@@ -16,9 +16,9 @@ namespace StudentAPI.Services
     {
         private readonly DataContext _context;
 
-        public StudentService()
+        public StudentService(DataContext context)
         {
-            _context = new DataContext();
+            _context = context;
         }
         public List<Student> GetAll()
         {
@@ -27,7 +27,7 @@ namespace StudentAPI.Services
 
         public Student GetById(int studentId)
         {
-            return _context.Student.Single(s => s.Id == studentId);
+            return _context.Student.SingleOrDefault(s => s.Id == studentId);
         }
     }
 

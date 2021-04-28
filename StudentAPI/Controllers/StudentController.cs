@@ -30,6 +30,11 @@ namespace StudentAPI.Controllers
         {
             var student = _studentService.GetById(id);
 
+            if (student ==null)
+            {
+                return NotFound();
+            }
+
             return Ok(student);
         }
     }
